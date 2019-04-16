@@ -5,7 +5,7 @@ html, body {
 body {
    margin: 0;
   padding: 0;
-  background: #FFDDAA fixed;
+  background: #FFDDAA#FFDDAA  fixed;
   background-repeat: repeat;
 }
 
@@ -32,11 +32,6 @@ ul#menu li a{
   padding: 0.5em 0.5em;
 }
 
-img{
- width:20%;
- height:20%;
-}
-
 img#homephoto{
    width:100%;
   height:100%;
@@ -49,10 +44,15 @@ ul#menu img{
   height:8em;
 }
 
-h1{
+h1,h2{
   text-align-last:center;
 }
 
+img#toegther{
+   width:60%;
+  height:45%;
+    padding:15%;
+}
 
 
 /* Button */
