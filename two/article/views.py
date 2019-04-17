@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from article.models import Article, Comment
 from article.forms import ArticleForm
+from article.models import Article, Comment
+
 from django.db.models.query_utils import Q
 # Create your views here.
 def article(request):
@@ -21,12 +22,12 @@ def articleCreate(request):
         2. If method is POST, perform form validation and display error messages if the form is invalid
         3. Save the form to the model and redirect the user to the article page
     '''
-    template = 'article/articleCreateUpdate.html'
+    template = 'article/articleCreate.html'
     if request.method == 'GET':
         print(ArticleForm())
         return render(request, template, {'articleForm':ArticleForm()})
     
-        # POST
+    # POST
     articleForm = ArticleForm(request.POST)
     if not articleForm.is_valid():
         return render(request, template, {'articleForm':articleForm})
@@ -99,4 +100,5 @@ def articleSearch(request):
                                       Q(content__icontains=searchTerm))
     context = {'articles':articles, 'searchTerm':searchTerm} 
     return render(request, 'article/articleSearch.html', context)
+
     
